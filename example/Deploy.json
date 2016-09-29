@@ -1,0 +1,7 @@
+{
+  "host": "159.203.66.54",
+  "user": "root",
+  "installNode": true,
+  "command": "node index.js",
+  "dir": "/root/"
+}
