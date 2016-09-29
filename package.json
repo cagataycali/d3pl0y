@@ -1,6 +1,6 @@
 {
   "name": "d3pl0y",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Deploy your nodejs project easly.",
   "main": "index.js",
   "dependencies": {
