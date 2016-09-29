@@ -1,16 +1,38 @@
 {
-  "name": "deployer",
+  "name": "d3pl0y",
   "version": "1.0.0",
-  "description": "",
+  "description": "Deploy your nodejs project easly.",
   "main": "index.js",
+  "dependencies": {
+    "simple-ssh": "^0.9.0"
+  },
+  "devDependencies": {},
   "scripts": {
-    "start": "node start.js"
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cagataycali/d3pl0y.git"
   },
   "bin": {
     "deploy": "./index.js"
   },
-  "author": "",
+  "keywords": [
+    "nodejs",
+    "deploy",
+    "node",
+    "app",
+    "deploy",
+    "node",
+    "nodejs",
+    "deployment"
+  ],
+  "author": "Çağatay Çalı",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cagataycali/d3pl0y/issues"
+  },
+  "homepage": "https://github.com/cagataycali/d3pl0y#readme",
   "dependencies": {
     "3x1st": "^1.0.3",
     "3x3c": "^1.0.2",
