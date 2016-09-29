@@ -1,10 +1,14 @@
 {
   "name": "d3pl0y",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Deploy your nodejs project easly.",
   "main": "index.js",
   "dependencies": {
-    "simple-ssh": "^0.9.0"
+    "3x1st": "^1.0.3",
+    "3x3c": "^1.0.2",
+    "colors": "^1.1.2",
+    "h0m3": "^1.0.1",
+    "opn": "^4.0.2"
   },
   "devDependencies": {},
   "scripts": {
@@ -32,12 +36,5 @@
   "bugs": {
     "url": "https://github.com/cagataycali/d3pl0y/issues"
   },
-  "homepage": "https://github.com/cagataycali/d3pl0y#readme",
-  "dependencies": {
-    "3x1st": "^1.0.3",
-    "3x3c": "^1.0.2",
-    "colors": "^1.1.2",
-    "h0m3": "^1.0.1",
-    "opn": "^4.0.2"
-  }
+  "homepage": "https://github.com/cagataycali/d3pl0y#readme"
 }
