@@ -68,11 +68,11 @@ exist(`${process.cwd()}/Deploy.json`)
                  function(callback) {
                      exec(`cd ${config.dir}/${process.cwd().split('/').pop(-1)}; ${config.command} &`) // ls
                        .then((value) => {
-                         console.log(colors.green('Runned your awesome starter code!'));
-                         console.log(value);
-                         callback(null, 'Runned your awesome starter code!');
+
                        })
                        .catch((err) => {callback(err);})
+                       console.log(colors.green('Runned your awesome starter code!'));
+                       callback(null, 'Runned your awesome starter code!');
                  }
              ],
              // optional callback
