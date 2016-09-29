@@ -19,6 +19,10 @@ npm i -g d3pl0y
 
 ```
 
+> **Notes** :
+  - SSH key based auth. should be already init.
+  
+
 - Run terminal command : deploy (ENTER)
 
 - All done!
