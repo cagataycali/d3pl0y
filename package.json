@@ -1,0 +1,21 @@
+{
+  "name": "deployer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node start.js"
+  },
+  "bin": {
+    "deploy": "./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "3x1st": "^1.0.3",
+    "3x3c": "^1.0.2",
+    "colors": "^1.1.2",
+    "h0m3": "^1.0.1",
+    "opn": "^4.0.2"
+  }
+}
