@@ -55,32 +55,18 @@ exist(`${process.cwd()}/Deploy.json`)
                process.exit();
              }
 
-             async.series([
-                 function(callback) {
-                   exec(`cd ${config.dir}/${process.cwd().split('/').pop(-1)}; npm install;`) // ls
-                     .then((value) => {
-                       console.log(colors.green('Npm install done!'));
-                       callback(null, 'Npm install done!');
-                     })
-                     .catch((err) => {callback(err);})
-                 },
-                 function(callback) {
-                     exec(`cd ${config.dir}/${process.cwd().split('/').pop(-1)}; ${config.command}`) // ls
-                       .then((value) => {
-                         console.log(colors.green('Runned your awesome starter code!'));
-                         console.log(value);
-                         callback(null, 'Runned your awesome starter code!');
-                       })
-                       .catch((err) => {callback(err);})
-                 }
-             ],
-             // optional callback
-             function(err, results) {
-                 if (err) {
-                   console.log(err);
-                   process.exit();
-                 }
-             });
+             exec(`cd ${config.dir}/${process.cwd().split('/').pop(-1)}; npm install;`) // ls
+               .then((value) => {
+                 console.log(colors.green('Npm install done!'));
+
+                 exec(`cd ${config.dir}/${process.cwd().split('/').pop(-1)}; ${config.command}`) // ls
+                   .then((value) => {
+                     console.log(colors.green('Runned your awesome starter code!'));
+                     console.log(value);
+                   })
+                   .catch((err) => {console.log(err);})
+               })
+               .catch((err) => {console.log(err);})
 
            });
 
