@@ -5,12 +5,12 @@ var colors = require('colors');
 var async = require('async');
 var exist = require('3x1st');
 var opn = require('opn');
-var package = require(`${process.cwd()}/package.json`);
+const notifier = require('node-notifier');
 
 exist(`${process.cwd()}/Deploy.json`)
   .catch((err) => {
     console.log(colors.red('Please create Deploy.json'));
-    opn('http://cagataycali.xyz');
+    opn('https://github.com/cagataycali/d3pl0y/blob/master/example/Deploy.json');
     process.exit();
   })
  .then(() => {
@@ -24,7 +24,10 @@ exist(`${process.cwd()}/Deploy.json`)
    var rsyncCommand =  `rsync -avz ${process.cwd()} ${config.user}@${config.host}:${config.dir} --exclude 'node_modules'`;
    home()
      .then((homeDir) => {
-       console.log(colors.green('Fetched your home dir: ', homeDir));
+       notifier.notify({
+         'title': 'd3pl0y',
+         'message': 'Deploy process started'
+       });
        E(`cat ${homeDir}/.ssh/id_rsa > /tmp/deployer.txt && chmod 600 /tmp/deployer.txt`)
          .then((value) => {
 
@@ -35,8 +38,12 @@ exist(`${process.cwd()}/Deploy.json`)
                  } else {
                    exec(commands) // node install
                      .then((value) => {
-                       console.log(colors.green('Pre commands runned.'));
-                       callback(null, 'Pre commands');
+                       console.log(colors.green('Node installed.'));
+                       notifier.notify({
+                         'title': 'd3pl0y',
+                         'message': 'Node installed.'
+                       });
+                       callback(null, 'Node installed');
                      })
                      .catch((err) => {callback(err);})
                  }
@@ -44,8 +51,12 @@ exist(`${process.cwd()}/Deploy.json`)
                function(callback) {
                  E(rsyncCommand) // rsync
                    .then((value) => {
-                     console.log(colors.green('Rsync runned'));
-                     callback(null, 'Rsync runned');
+                     console.log(colors.green('Project uploaded.'));
+                     notifier.notify({
+                       'title': 'd3pl0y',
+                       'message': 'Project uploaded.'
+                     });
+                     callback(null, 'Project uploaded.');
                    })
                    .catch((err) => {callback(err);})
                }
@@ -53,33 +64,35 @@ exist(`${process.cwd()}/Deploy.json`)
            function(err, results) {
              if (err) {
                console.log(err);
-               process.exit();
              }
 
              async.series([
                  function(callback) {
                    exec(`cd ${config.dir}/${process.cwd().split('/').pop(-1)}; npm install;`) // ls
                      .then((value) => {
-                       console.log(colors.green('Npm install done!'));
+                       console.log(colors.green('Npm install done.'));
+                       notifier.notify({
+                         'title': 'd3pl0y',
+                         'message': 'Npm install done.'
+                       });
                        callback(null, 'Npm install done!');
                      })
                      .catch((err) => {callback(err);})
                  },
                  function(callback) {
-                     exec(`cd ${config.dir}/${process.cwd().split('/').pop(-1)}; ${config.command} &`) // ls
-                       .then((value) => {
-
-                       })
-                       .catch((err) => {callback(err);})
-                       console.log(colors.green('Runned your awesome starter code!'));
-                       callback(null, 'Runned your awesome starter code!');
+                    exec(`cd ${config.dir}/${process.cwd().split('/').pop(-1)}; ${config.command} &`) // ls
+                    console.log(colors.green('Runned your awesome starter code!'));
+                    notifier.notify({
+                      'title': 'd3pl0y',
+                      'message': 'Runned your awesome starter code!'
+                    });
+                    setInterval(function(){ process.exit() }, 100);
                  }
              ],
              // optional callback
              function(err, results) {
                  if (err) {
                    console.log(err);
-                   process.exit();
                  }
              });
 
