@@ -9,11 +9,14 @@
     "colors": "^1.1.2",
     "h0m3": "^1.0.1",
     "node-notifier": "^4.6.1",
-    "opn": "^4.0.2"
+    "opn": "^4.0.2",
+    "snyk": "^1.47.0"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node index.js"
+    "test": "node index.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -37,5 +40,6 @@
   "bugs": {
     "url": "https://github.com/cagataycali/d3pl0y/issues"
   },
-  "homepage": "https://github.com/cagataycali/d3pl0y#readme"
+  "homepage": "https://github.com/cagataycali/d3pl0y#readme",
+  "snyk": true
 }
