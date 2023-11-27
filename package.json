@@ -8,7 +8,7 @@
     "3x3c": "^1.0.2",
     "colors": "^1.1.2",
     "h0m3": "^1.0.1",
-    "node-notifier": "^4.6.1",
+    "node-notifier": "^5.0.0",
     "opn": "^4.0.2"
   },
   "devDependencies": {},
